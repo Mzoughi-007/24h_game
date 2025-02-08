@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmbkly51oh4u3"]
+
+[ext_resource type="Texture2D" uid="uid://cwh70sxwjck31" path="res://assets/Sprites/image-removebg-preview(13).png" id="1_4eans"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkxq8"]
+atlas = ExtResource("1_4eans")
+region = Rect2(774, 0, 258, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajudh"]
+atlas = ExtResource("1_4eans")
+region = Rect2(516, 0, 258, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74c1j"]
+atlas = ExtResource("1_4eans")
+region = Rect2(0, 0, 258, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr7dh"]
+atlas = ExtResource("1_4eans")
+region = Rect2(258, 0, 258, 241)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7tsk"]
+animations = [{
+"frames": [{
+"duration": 2.3,
+"texture": SubResource("AtlasTexture_wkxq8")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_ajudh")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_74c1j")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_fr7dh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26rsx"]
+size = Vector2(2.74706, 101.772)
+
+[sub_resource type="Animation" id="Animation_rlkub"]
+resource_name = "attack"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.533333, 0.633333, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-71, -17), Vector2(-44.3333, -20.5556), Vector2(-31, -22.3333), Vector2(-11, -25), Vector2(-11, -25), Vector2(-11, -25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.533333, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-1.30779, -1.30779, -1.30779, -1.30779, -1.30779]
+}
+
+[sub_resource type="Animation" id="Animation_xv114"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11, -25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.30779]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_43njs"]
+_data = {
+"RESET": SubResource("Animation_xv114"),
+"attack": SubResource("Animation_rlkub")
+}
+
+[node name="attack" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+safe_margin = 0.001
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(-2, -1)
+sprite_frames = SubResource("SpriteFrames_n7tsk")
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-11, -25)
+rotation = -1.30779
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_26rsx")
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_43njs")
+}

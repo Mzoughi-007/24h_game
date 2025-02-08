@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://by5scs0jlirm1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p7gyu"]
+load_path = "res://.godot/imported/image-removebg-preview(6).png-9c9e65f83b89e8d10a665c24b505024f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrd5s"]
+atlas = SubResource("CompressedTexture2D_p7gyu")
+region = Rect2(696, 0, 232, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esx65"]
+atlas = SubResource("CompressedTexture2D_p7gyu")
+region = Rect2(464, 0, 232, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4jxk"]
+atlas = SubResource("CompressedTexture2D_p7gyu")
+region = Rect2(0, 0, 232, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c435f"]
+atlas = SubResource("CompressedTexture2D_p7gyu")
+region = Rect2(232, 0, 232, 232)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qc3xf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrd5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esx65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4jxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c435f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(161, 8)
+sprite_frames = SubResource("SpriteFrames_qc3xf")
+frame_progress = 0.538072
