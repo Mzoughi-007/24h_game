@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqai8cgucqkgn"]
+
+[ext_resource type="Texture2D" uid="uid://wbmg5bn6cg5m" path="res://assets/Sprites/image-removebg-preview (10).png" id="1_cj24a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtglg"]
+atlas = ExtResource("1_cj24a")
+region = Rect2(0, 204, 204, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7j4e"]
+atlas = ExtResource("1_cj24a")
+region = Rect2(204, 204, 204, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpp8i"]
+atlas = ExtResource("1_cj24a")
+region = Rect2(408, 0, 204, 204)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kwhgt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtglg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtglg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtglg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7j4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpp8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7j4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_kwhgt")
+frame_progress = 0.588585

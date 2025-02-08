@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyiuwf1mx1d5k"]
+
+[ext_resource type="Texture2D" uid="uid://wbmg5bn6cg5m" path="res://assets/Sprites/image-removebg-preview (10).png" id="1_huue7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnpcg"]
+atlas = ExtResource("1_huue7")
+region = Rect2(204, 0, 204, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmtoo"]
+atlas = ExtResource("1_huue7")
+region = Rect2(408, 204, 204, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bcqk"]
+atlas = ExtResource("1_huue7")
+region = Rect2(0, 0, 204, 204)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqf2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnpcg")
+}, {
+"duration": 2.3,
+"texture": SubResource("AtlasTexture_fmtoo")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_7bcqk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vk605"]
+
+[node name="skull_speaking2" type="CharacterBody2D"]
+position = Vector2(10, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kqf2x")
+frame_progress = 0.398687
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vk605")

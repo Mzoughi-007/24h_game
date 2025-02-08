@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1taeqwwkk0ci"]
+
+[ext_resource type="Texture2D" uid="uid://wbmg5bn6cg5m" path="res://assets/Sprites/image-removebg-preview (10).png" id="1_ma2qy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnpcg"]
+atlas = ExtResource("1_ma2qy")
+region = Rect2(204, 0, 204, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmtoo"]
+atlas = ExtResource("1_ma2qy")
+region = Rect2(408, 204, 204, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bcqk"]
+atlas = ExtResource("1_ma2qy")
+region = Rect2(0, 0, 204, 204)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqf2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnpcg")
+}, {
+"duration": 2.3,
+"texture": SubResource("AtlasTexture_fmtoo")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_7bcqk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="skull_speaking2" type="CharacterBody2D"]
+position = Vector2(10, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kqf2x")
+frame_progress = 0.0845467
